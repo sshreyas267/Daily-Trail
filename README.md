@@ -4,7 +4,7 @@ A daily treasure hunt for people who love puzzles. Everyone gets the same hunt e
 
 **Play it:** https://dailytrail.vercel.app/
 
-**Metrics plan:** [docs/METRICS.md](docs/METRICS.md) lists what we track, what each number tells us, and what we would do when it moves.
+**Metrics plan:** [docs/Daily-Trail-Metrics-Plan.pdf](docs/Daily-Trail-Metrics-Plan.pdf) is the version for management. It lists what we track, what working and not working look like, what we change, and how results are reported. [docs/METRICS.md](docs/METRICS.md) has the same plan in plain text.
 
 **How it was built:** [PROMPTS.md](PROMPTS.md) records what was asked and what changed in each phase.
 
