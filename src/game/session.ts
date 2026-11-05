@@ -3,6 +3,7 @@ import { hunts } from '../data/hunts';
 import {
   applyOpen,
   dayNumberFor,
+  daysBetween,
   isDateKey,
   newStreak,
   puzzleForDay,
@@ -46,6 +47,8 @@ export type Session = {
   streak: StreakState | null;
   streakChange: StreakChange | null;
   initialGame: GameState;
+  isNewPlayer: boolean;
+  daysSinceLast: number | null;
 };
 
 type SavedGame = { dateKey: string; state: GameState };
@@ -80,6 +83,9 @@ export function createSession(search: string, now: Date, backend: StorageBackend
     store.save('streak', streak);
   }
 
+  const lastVisit = store.load<string>('last_visit');
+  store.save('last_visit', dateKey);
+
   const saved = store.load<SavedGame>('game');
   const canResume = saved?.dateKey === dateKey && saved.state.puzzle === hunt.day;
   return {
@@ -91,5 +97,7 @@ export function createSession(search: string, now: Date, backend: StorageBackend
     streak,
     streakChange,
     initialGame: canResume ? saved.state : createInitialState(hunt, dayNumber),
+    isNewPlayer: lastVisit === null,
+    daysSinceLast: lastVisit === null ? null : daysBetween(lastVisit, dateKey),
   };
 }
