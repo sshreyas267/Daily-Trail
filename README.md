@@ -32,7 +32,7 @@ To add a package, use `npx npm@11 install <package>`. npm 10 crashes while resol
 
 ## Test overrides
 
-These work on the live site too.
+After finishing a hunt, the result screen lists all seven hunts under "Play more hunts". Each opens as a practice play using `?day=N`, so testers can try every hunt in one sitting. The overrides below work on the live site too.
 
 | Add to the URL | What it does |
 |---|---|

@@ -94,7 +94,7 @@ export function App({ session }: { session: Session }) {
       />
     );
   } else if (state.phase === 'finished') {
-    screen = <Result hunt={hunt} state={state} streak={streak} />;
+    screen = <Result hunt={hunt} state={state} streak={streak} practising={session.mode !== 'live'} />;
   } else {
     screen = (
       <>

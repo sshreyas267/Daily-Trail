@@ -52,6 +52,14 @@ We chose this over visits because a visit only shows that someone opened the pag
 |---|---|---|
 | Share rate | Players who use Share or Copy, out of players who finish that day | 15% |
 
+### Do they want more than one hunt a day?
+
+| Metric | How it is calculated | Starting target |
+|---|---|---|
+| Practice rate | Players who open a practice hunt from the result screen, out of players who finish that day | No target yet. We learn what is normal first |
+
+Practice plays never count towards the streak, score or any metric above.
+
 ## What we do when a number moves
 
 | If we see this | It probably means | We do this |
@@ -69,6 +77,7 @@ We chose this over visits because a visit only shows that someone opened the pag
 | Freezes make no visible difference | The freeze is not worth the complexity | Simplify the streak rules |
 | Share rate is under 5% | The result is not worth showing off | Test a new share card and a head-to-head challenge link |
 | Share rate is healthy but new players stay flat | Shares do not bring people in | Track arrivals from shared links, then change the message or the link |
+| Practice rate is above 30% | Many players want more than one hunt a day | Build a hunt archive or a bonus hunt, and check that it does not lower next-day returns |
 | Finish rate rises while D7 falls | The hunts may have become too easy to feel rewarding | Roll back the easier content and check the difficulty mix |
 
 ## Reading the numbers safely

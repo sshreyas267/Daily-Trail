@@ -41,3 +41,8 @@ Tooling note: npm 10.9.2 crashes while resolving peer dependencies for this depe
 **Asked:** Run the QA pass and leave the dashboard out. The agreed checks were 360px and 400px, light and dark, reduced motion, keyboard-only play, no horizontal scroll and visible focus. The README belongs to this phase.
 
 **Changed:** Played all seven hunts in a real browser at 320px, 360px and 400px, in light and dark, with reduced motion at 360px, and ran an automated accessibility scan on hunts 1, 2 and 6. Fixed five problems: the "How this works" toggle was a small tap target (24px, now 44px); the "You" row on the leaderboard had low contrast; the test-mode banner sat outside any page landmark; keyboard focus was dropped on arriving at a cipher stage, and now goes to the heading so a phone keyboard still does not open; and focus was dropped when the answer was shown, and now goes to the answer box. The newest hint now scrolls into view. Added README.md. The dashboard was not built, at the user's request.
+
+## Play more hunts
+**Asked:** Add a button that lets people play the other hunts straight away, or come back the next day, so the game can be tested.
+
+**Changed:** The result screen has a "Play more hunts" section that links to all seven hunts. Each opens as a practice play through the existing `?day=N` mode, so it never changes the real streak, score or daily lock. Practice results include a "Back to today's hunt" link. Opening a practice hunt fires a new practice_opened event, added to reference/events.md, along with a practice rate in docs/METRICS.md, since it shows demand for more than one hunt a day. Checked in a browser: finish today's hunt, play another, go back, and the streak and lock are unchanged.

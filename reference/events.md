@@ -2,7 +2,7 @@
 
 Every event carries `player_id`, `session_id`, `hunt` (day number), `puzzle` (1 to 7) and `ts`. The table lists only the extra properties.
 
-Events fired under `?day=N` are marked `dev: true` and left out of metrics.
+Events fired under `?day=N` are marked `dev: true` and left out of metrics. Practice plays use `?day=N`, so they never count as real plays.
 
 | Event | Fires when | Extra properties | Feeds |
 |---|---|---|---|
@@ -15,6 +15,7 @@ Events fired under `?day=N` are marked `dev: true` and left out of metrics.
 | hunt_completed | Stage 3 is solved | score, secs, hints, wrong, streak | Weekly active solvers |
 | hunt_abandoned | The page is hidden after Start and before the finish, at most once per session | last_stage, secs | Drop-off signal |
 | share_copied | The share sheet or Copy is used | score, method | Share rate |
+| practice_opened | A player picks a hunt under "Play more hunts" on the result screen | puzzle | Demand for more hunts |
 | streak_freeze_used | A missed day is covered | streak, freezes_left | Freeze effect |
 | streak_broken | The streak resets to 0 | previous_streak | Streak risk |
 

@@ -5,13 +5,14 @@ import { formatTime, totalHints, totalScore, totalWrong, elapsedSecs } from '../
 import type { GameState } from '../game/reducer';
 import { Chest } from './Chest';
 import { Leaderboard } from './Leaderboard';
+import { MoreHunts } from './MoreHunts';
 import { ShareCard } from './ShareCard';
 
-type Props = { hunt: Hunt; state: GameState; streak: StreakState | null };
+type Props = { hunt: Hunt; state: GameState; streak: StreakState | null; practising: boolean };
 
 const STAGE_LABEL = { riddle: 'Riddle', cipher: 'Cipher', pattern: 'Pattern' } as const;
 
-export function Result({ hunt, state, streak }: Props) {
+export function Result({ hunt, state, streak, practising }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const score = totalScore(state);
   const secs = elapsedSecs(state, Date.now());
@@ -81,6 +82,7 @@ export function Result({ hunt, state, streak }: Props) {
       </table>
 
       <ShareCard text={shareText} score={score} />
+      <MoreHunts puzzle={hunt.day} practising={practising} />
       <Leaderboard rows={buildLeaderboard(state.dayNumber, { name: 'You', score, secs })} />
     </main>
   );
