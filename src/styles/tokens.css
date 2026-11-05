@@ -1,0 +1,98 @@
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f6f6f4;
+  --text: #121212;
+  --text-muted: #5f5f5b;
+  --border: #d4d4cf;
+  --tile: #ffffff;
+  --tile-border: #878a8c;
+  --button-bg: #121212;
+  --button-text: #ffffff;
+  --green: #4f8f4a;
+  --yellow: #c9a227;
+  --black-square: #121212;
+  --on-status: #ffffff;
+  --error: #b3261e;
+  --focus: #1f6fd6;
+
+  --font-ui: 'Libre Franklin', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --radius-pill: 999px;
+  --radius-panel: 8px;
+  --content-width: 480px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #121213;
+    --surface: #1e1e20;
+    --text: #f4f4f2;
+    --text-muted: #a9a9a4;
+    --border: #3a3a3c;
+    --tile: #1e1e20;
+    --tile-border: #6e6e70;
+    --button-bg: #f4f4f2;
+    --button-text: #121213;
+    --green: #5f9f59;
+    --yellow: #b8962a;
+    --black-square: #000000;
+    --error: #f2857d;
+    --focus: #7ab1f5;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #121213;
+  --surface: #1e1e20;
+  --text: #f4f4f2;
+  --text-muted: #a9a9a4;
+  --border: #3a3a3c;
+  --tile: #1e1e20;
+  --tile-border: #6e6e70;
+  --button-bg: #f4f4f2;
+  --button-text: #121213;
+  --green: #5f9f59;
+  --yellow: #b8962a;
+  --black-square: #000000;
+  --error: #f2857d;
+  --focus: #7ab1f5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  line-height: 1.5;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
