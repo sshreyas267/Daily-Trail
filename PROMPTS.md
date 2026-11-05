@@ -36,3 +36,8 @@ Tooling note: npm 10.9.2 crashes while resolving peer dependencies for this depe
 **Asked:** Write the metrics document the brief requires, for management, covering what to track and what to do when a number moves. Also soften the sample leaderboard so a player who takes hints is not always near the bottom.
 
 **Changed:** Added docs/METRICS.md with one main number (weekly active solvers), metric definitions with starting targets, a decision table, cautions for reading the numbers, and the measurement gaps. It says plainly that no real player data exists yet and that the targets are assumptions. Rebalanced the sample scores: a 205 now places around 7th of 13, a 300 stays at or near the top, and a test holds this in place.
+
+## Phase 7: QA pass and README
+**Asked:** Run the QA pass and leave the dashboard out. The agreed checks were 360px and 400px, light and dark, reduced motion, keyboard-only play, no horizontal scroll and visible focus. The README belongs to this phase.
+
+**Changed:** Played all seven hunts in a real browser at 320px, 360px and 400px, in light and dark, with reduced motion at 360px, and ran an automated accessibility scan on hunts 1, 2 and 6. Fixed five problems: the "How this works" toggle was a small tap target (24px, now 44px); the "You" row on the leaderboard had low contrast; the test-mode banner sat outside any page landmark; keyboard focus was dropped on arriving at a cipher stage, and now goes to the heading so a phone keyboard still does not open; and focus was dropped when the answer was shown, and now goes to the answer box. The newest hint now scrolls into view. Added README.md. The dashboard was not built, at the user's request.

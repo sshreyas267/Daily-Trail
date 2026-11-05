@@ -59,13 +59,26 @@ export function Stage({ stage, stageNumber, stageCount, progress, onSubmit, onHi
   const [answer, setAnswer] = useState('');
   const [shaking, setShaking] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const hintListRef = useRef<HTMLOListElement>(null);
   const previousWrong = useRef(progress.wrong);
+  const previousHints = useRef(progress.hints);
 
   // On a phone, focus opens the keyboard, which would cover the cipher help.
   const focusOnArrival = stage.type !== 'cipher';
   useEffect(() => {
     if (focusOnArrival) inputRef.current?.focus();
+    else headingRef.current?.focus();
   }, [focusOnArrival]);
+
+  useEffect(() => {
+    if (progress.hints > previousHints.current) {
+      // The hint button goes away after the last hint, so keyboard focus needs a new place.
+      if (progress.hints === HINT_COST.length) inputRef.current?.focus({ preventScroll: true });
+      hintListRef.current?.lastElementChild?.scrollIntoView({ block: 'nearest' });
+    }
+    previousHints.current = progress.hints;
+  }, [progress.hints]);
 
   useEffect(() => {
     if (progress.wrong > previousWrong.current) {
@@ -90,7 +103,9 @@ export function Stage({ stage, stageNumber, stageCount, progress, onSubmit, onHi
       <p className="eyebrow">
         Stage {stageNumber} of {stageCount}: {STAGE_LABEL[stage.type]}
       </p>
-      <h1 className="prompt">{stage.prompt}</h1>
+      <h1 ref={headingRef} className="prompt" tabIndex={-1}>
+        {stage.prompt}
+      </h1>
 
       {stage.type === 'cipher' && <CipherNote stage={stage} />}
       {stage.type === 'pattern' && <PatternTiles tiles={stage.tiles} />}
@@ -139,7 +154,7 @@ export function Stage({ stage, stageNumber, stageCount, progress, onSubmit, onHi
       <section className="hints" aria-label="Hints">
         <p className="muted">This stage is worth {scoreStage(progress.hints)} points.</p>
         {progress.hints > 0 && (
-          <ol className="hint-list">
+          <ol ref={hintListRef} className="hint-list">
             {stage.hints.slice(0, progress.hints).map((hint) => (
               <li key={hint}>{hint}</li>
             ))}

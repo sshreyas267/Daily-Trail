@@ -15,11 +15,11 @@ import { saveGame, saveStreak, type Session } from './game/session';
 function DevBanner({ session }: { session: Session }) {
   if (session.mode === 'live') return null;
   return (
-    <p className="dev-banner">
+    <aside className="dev-banner">
       {session.mode === 'day'
         ? `Test view of puzzle ${session.hunt.day}. This play does not count.`
         : `Test date ${session.dateKey}. This is kept apart from your real progress.`}
-    </p>
+    </aside>
   );
 }
 

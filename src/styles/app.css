@@ -32,7 +32,8 @@
   line-height: 1.3;
 }
 
-.heading:focus {
+.heading:focus,
+.prompt:focus {
   outline: none;
 }
 
@@ -262,6 +263,7 @@
 }
 
 .howto summary {
+  padding-block: 10px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -462,7 +464,7 @@
 }
 
 .leaderboard-you td {
-  background: var(--green);
+  background: var(--green-strong);
   color: var(--on-status);
   font-weight: 700;
 }
