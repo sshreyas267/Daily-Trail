@@ -31,3 +31,8 @@ Tooling note: npm 10.9.2 crashes while resolving peer dependencies for this depe
 **Asked:** Build the real result screen. Share text with the hunt number, one square per stage, "Treasure found", time and streak, plus a Copy button with a selectable fallback. Leaderboard of 12 seeded players per day plus the player, ranked by score then time, labelled as sample data.
 
 **Changed:** Added src/engine/share.ts and leaderboard.ts, and the ShareCard and Leaderboard components. The share text also carries a link to the game, and phones get the native share sheet with Copy alongside it. Closing the share sheet records nothing, and a failed share falls back to Copy. share_copied now fires with a method of share, copy or manual. Seeded players depend only on the day number and player index, so the board is stable on reload and differs when a puzzle repeats. The "This week" toggle was dropped as agreed. Tests confirm the share text never contains an answer or the treasure word.
+
+## Metrics doc and leaderboard tuning
+**Asked:** Write the metrics document the brief requires, for management, covering what to track and what to do when a number moves. Also soften the sample leaderboard so a player who takes hints is not always near the bottom.
+
+**Changed:** Added docs/METRICS.md with one main number (weekly active solvers), metric definitions with starting targets, a decision table, cautions for reading the numbers, and the measurement gaps. It says plainly that no real player data exists yet and that the targets are assumptions. Rebalanced the sample scores: a 205 now places around 7th of 13, a 300 stays at or near the top, and a test holds this in place.

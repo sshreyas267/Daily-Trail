@@ -55,6 +55,18 @@ describe('leaderboard', () => {
     rows.slice(playerIndex + 1).forEach((row) => expect(row.score).toBeLessThanOrEqual(200));
   });
 
+  it('places a player with a few hints mid-table, and a clean solve near the top', () => {
+    const medianRank = (score: number) => {
+      const ranks = Array.from({ length: 101 }, (_, day) =>
+        buildLeaderboard(day + 1, { name: 'You', score, secs: 150 }).find((row) => row.isPlayer)!.rank,
+      ).sort((a, b) => a - b);
+      return ranks[50];
+    };
+    expect(medianRank(205)).toBeGreaterThanOrEqual(5);
+    expect(medianRank(205)).toBeLessThanOrEqual(9);
+    expect(medianRank(300)).toBeLessThanOrEqual(2);
+  });
+
   it('puts the player first on a perfect score and fastest time', () => {
     expect(buildLeaderboard(7, { name: 'You', score: 300, secs: 1 })[0].isPlayer).toBe(true);
   });

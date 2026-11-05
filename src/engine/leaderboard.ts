@@ -19,11 +19,11 @@ function seededRandom(seed: number): () => number {
   };
 }
 
-/** Points for one stage, weighted towards solving with few hints. */
+/** Points for one stage. Spread so that a first-time player who takes a few hints lands mid-table. */
 function samplePoints(roll: number): number {
-  if (roll < 0.5) return 100;
-  if (roll < 0.78) return 85;
-  if (roll < 0.94) return 60;
+  if (roll < 0.25) return 100;
+  if (roll < 0.5) return 85;
+  if (roll < 0.8) return 60;
   return 20;
 }
 
