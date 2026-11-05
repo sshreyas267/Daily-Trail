@@ -35,40 +35,464 @@
     }
   },
   "hunts": [
-    { "day": 1, "word": "SEA", "stages": [
-      { "type": "riddle", "prompt": "I'm full of holes, yet I can hold water. What am I?", "answer": "SPONGE", "accept": ["sponge"] },
-      { "type": "cipher", "kind": "caesar", "shift": 3, "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.", "crib": { "text": "WKH", "plain": "THE" }, "cipher": "HPHUDOG", "answer": "EMERALD", "accept": ["emerald"] },
-      { "type": "pattern", "prompt": "What comes next?", "tiles": ["J", "F", "M", "A", "M", "J", "J", "?"], "answer": "AUGUST", "accept": ["august", "aug", "a"] }
-    ] },
-    { "day": 2, "word": "MAP", "stages": [
-      { "type": "riddle", "prompt": "I shine at night with no light of my own, and I pull the tides without touching them. What am I?", "answer": "MOON", "accept": ["moon"] },
-      { "type": "cipher", "kind": "atbash", "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.", "crib": { "text": "GSV", "plain": "THE" }, "cipher": "ZMXSLI", "answer": "ANCHOR", "accept": ["anchor"] },
-      { "type": "pattern", "prompt": "What comes next?", "tiles": ["M", "V", "E", "M", "J", "S", "U", "N", "?"], "answer": "PLUTO", "accept": ["pluto", "p"] }
-    ] },
-    { "day": 3, "word": "SUN", "stages": [
-      { "type": "riddle", "prompt": "I follow you everywhere, but I vanish in the dark. What am I?", "answer": "SHADOW", "accept": ["shadow"] },
-      { "type": "cipher", "kind": "caesar", "shift": 5, "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.", "crib": { "text": "YMJ", "plain": "THE" }, "cipher": "ZSIJWXJF", "answer": "UNDERSEA", "accept": ["undersea"] },
-      { "type": "pattern", "prompt": "What comes next?", "tiles": ["O", "T", "T", "F", "F", "S", "S", "E", "?"], "answer": "NINE", "accept": ["nine", "9", "n"] }
-    ] },
-    { "day": 4, "word": "RAT", "stages": [
-      { "type": "riddle", "prompt": "I have a mouth but never speak, and a bed but never sleep. What am I?", "answer": "RIVER", "accept": ["river"] },
-      { "type": "cipher", "kind": "caesar", "shift": 4, "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.", "crib": { "text": "XLI", "plain": "THE" }, "cipher": "EVQEHE", "answer": "ARMADA", "accept": ["armada"] },
-      { "type": "pattern", "prompt": "What comes next?", "tiles": ["DO", "RE", "MI", "FA", "SO", "LA", "?"], "answer": "TI", "accept": ["ti", "te"] }
-    ] },
-    { "day": 5, "word": "OAR", "stages": [
-      { "type": "riddle", "prompt": "I have three hearts, eight arms and no bones. What am I?", "answer": "OCTOPUS", "accept": ["octopus"] },
-      { "type": "cipher", "kind": "caesar", "shift": 13, "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.", "crib": { "text": "GUR", "plain": "THE" }, "cipher": "NGYNAGVF", "answer": "ATLANTIS", "accept": ["atlantis"] },
-      { "type": "pattern", "prompt": "What comes next?", "tiles": ["Q", "W", "E", "?"], "answer": "R", "accept": ["r"] }
-    ] },
-    { "day": 6, "word": "ELF", "stages": [
-      { "type": "riddle", "prompt": "I speak without a mouth and answer only when you call. What am I?", "answer": "ECHO", "accept": ["echo"] },
-      { "type": "cipher", "kind": "pairswap", "prompt": "A pirate sent a coded note. Decode the word. That is your answer.", "cipher": "ALOGNO", "answer": "LAGOON", "accept": ["lagoon"] },
-      { "type": "pattern", "prompt": "What comes next?", "tiles": ["SUN", "MON", "TUE", "WED", "THU", "?"], "answer": "FRI", "accept": ["fri", "friday", "f"] }
-    ] },
-    { "day": 7, "word": "KEY", "stages": [
-      { "type": "riddle", "prompt": "I fly without wings, and a string stops me from getting away. What am I?", "answer": "KITE", "accept": ["kite"] },
-      { "type": "cipher", "kind": "caesar", "shift": 7, "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.", "crib": { "text": "AOL", "plain": "THE" }, "cipher": "LEWSVYLY", "answer": "EXPLORER", "accept": ["explorer"] },
-      { "type": "pattern", "prompt": "Which colour is missing?", "tiles": ["R", "O", "?", "G", "B", "I", "V"], "answer": "YELLOW", "accept": ["yellow", "y"] }
-    ] }
+    {
+      "day": 1,
+      "word": "SEA",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "I'm full of holes, yet I can hold water. What am I?",
+          "answer": "SPONGE",
+          "accept": [
+            "sponge"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "caesar",
+          "shift": 3,
+          "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+          "crib": {
+            "text": "WKH",
+            "plain": "THE"
+          },
+          "cipher": "HPHUDOG",
+          "answer": "EMERALD",
+          "accept": [
+            "emerald"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "What comes next?",
+          "tiles": [
+            "J",
+            "F",
+            "M",
+            "A",
+            "M",
+            "J",
+            "J",
+            "?"
+          ],
+          "answer": "AUGUST",
+          "accept": [
+            "august",
+            "aug",
+            "a"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "word": "MAP",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "I shine at night with no light of my own, and I pull the tides without touching them. What am I?",
+          "answer": "MOON",
+          "accept": [
+            "moon"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "atbash",
+          "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+          "crib": {
+            "text": "GSV",
+            "plain": "THE"
+          },
+          "cipher": "ZMXSLI",
+          "answer": "ANCHOR",
+          "accept": [
+            "anchor"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "What comes next?",
+          "tiles": [
+            "M",
+            "V",
+            "E",
+            "M",
+            "J",
+            "S",
+            "U",
+            "N",
+            "?"
+          ],
+          "answer": "PLUTO",
+          "accept": [
+            "pluto",
+            "p"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "word": "SUN",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "I follow you everywhere, but I vanish in the dark. What am I?",
+          "answer": "SHADOW",
+          "accept": [
+            "shadow"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "caesar",
+          "shift": 5,
+          "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+          "crib": {
+            "text": "YMJ",
+            "plain": "THE"
+          },
+          "cipher": "ZSIJWXJF",
+          "answer": "UNDERSEA",
+          "accept": [
+            "undersea"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "What comes next?",
+          "tiles": [
+            "O",
+            "T",
+            "T",
+            "F",
+            "F",
+            "S",
+            "S",
+            "E",
+            "?"
+          ],
+          "answer": "NINE",
+          "accept": [
+            "nine",
+            "9",
+            "n"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "word": "RAT",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "I have a mouth but never speak, and a bed but never sleep. What am I?",
+          "answer": "RIVER",
+          "accept": [
+            "river"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "caesar",
+          "shift": 4,
+          "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+          "crib": {
+            "text": "XLI",
+            "plain": "THE"
+          },
+          "cipher": "EVQEHE",
+          "answer": "ARMADA",
+          "accept": [
+            "armada"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "What comes next?",
+          "tiles": [
+            "DO",
+            "RE",
+            "MI",
+            "FA",
+            "SO",
+            "LA",
+            "?"
+          ],
+          "answer": "TI",
+          "accept": [
+            "ti",
+            "te"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "word": "OAR",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "I have three hearts, eight arms and no bones. What am I?",
+          "answer": "OCTOPUS",
+          "accept": [
+            "octopus"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "caesar",
+          "shift": 13,
+          "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+          "crib": {
+            "text": "GUR",
+            "plain": "THE"
+          },
+          "cipher": "NGYNAGVF",
+          "answer": "ATLANTIS",
+          "accept": [
+            "atlantis"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "What comes next?",
+          "tiles": [
+            "Q",
+            "W",
+            "E",
+            "?"
+          ],
+          "answer": "R",
+          "accept": [
+            "r"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 6,
+      "word": "ELF",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "I speak without a mouth and answer only when you call. What am I?",
+          "answer": "ECHO",
+          "accept": [
+            "echo"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "pairswap",
+          "prompt": "A pirate sent a coded note. Decode the word. That is your answer.",
+          "cipher": "ALOGNO",
+          "answer": "LAGOON",
+          "accept": [
+            "lagoon"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "What comes next?",
+          "tiles": [
+            "SUN",
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "?"
+          ],
+          "answer": "FRI",
+          "accept": [
+            "fri",
+            "friday",
+            "f"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 7,
+      "word": "KEY",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "I fly without wings, and a string stops me from getting away. What am I?",
+          "answer": "KITE",
+          "accept": [
+            "kite"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "caesar",
+          "shift": 7,
+          "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+          "crib": {
+            "text": "AOL",
+            "plain": "THE"
+          },
+          "cipher": "LEWSVYLY",
+          "answer": "EXPLORER",
+          "accept": [
+            "explorer"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "Which colour is missing?",
+          "tiles": [
+            "R",
+            "O",
+            "?",
+            "G",
+            "B",
+            "I",
+            "V"
+          ],
+          "answer": "YELLOW",
+          "accept": [
+            "yellow",
+            "y"
+          ]
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "day": 1,
+      "word": "BOW",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "I have a spine but no bones, and leaves but no branches. What am I?",
+          "answer": "BOOK",
+          "accept": [
+            "book"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "caesar",
+          "shift": 2,
+          "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+          "crib": {
+            "text": "VJG",
+            "plain": "THE"
+          },
+          "cipher": "QXGTDQCTF",
+          "answer": "OVERBOARD",
+          "accept": [
+            "overboard"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "What comes next?",
+          "tiles": [
+            "N",
+            "E",
+            "S",
+            "?"
+          ],
+          "answer": "WEST",
+          "accept": [
+            "west",
+            "w"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "word": "TEA",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "What gets wetter the more it dries?",
+          "answer": "TOWEL",
+          "accept": [
+            "towel"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "atbash",
+          "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+          "crib": {
+            "text": "GSV",
+            "plain": "THE"
+          },
+          "cipher": "VZHGDZIW",
+          "answer": "EASTWARD",
+          "accept": [
+            "eastward",
+            "eastwards"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "What comes next?",
+          "tiles": [
+            "10",
+            "J",
+            "Q",
+            "K",
+            "?"
+          ],
+          "answer": "ACE",
+          "accept": [
+            "ace",
+            "a"
+          ]
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "word": "SKI",
+      "stages": [
+        {
+          "type": "riddle",
+          "prompt": "What goes up and down but never moves?",
+          "answer": "STAIRS",
+          "accept": [
+            "stairs",
+            "staircase",
+            "stairway",
+            "steps"
+          ]
+        },
+        {
+          "type": "cipher",
+          "kind": "pairswap",
+          "prompt": "A pirate sent a coded note. Decode the word. That is your answer.",
+          "cipher": "RKKANE",
+          "answer": "KRAKEN",
+          "accept": [
+            "kraken"
+          ]
+        },
+        {
+          "type": "pattern",
+          "prompt": "What comes next?",
+          "tiles": [
+            "A",
+            "C",
+            "E",
+            "G",
+            "?"
+          ],
+          "answer": "I",
+          "accept": [
+            "i"
+          ]
+        }
+      ]
+    }
   ]
 }

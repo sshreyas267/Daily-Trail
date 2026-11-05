@@ -10,7 +10,8 @@ export type EventProps = {
   hunt_completed: { score: number; secs: number; hints: number; wrong: number; streak: number };
   hunt_abandoned: { last_stage: number; secs: number };
   share_copied: { score: number; method: string };
-  practice_opened: { puzzle: number };
+  practice_opened: { kind: 'practice' | 'replay'; target: number };
+  trail_answers_viewed: { day: number };
   streak_freeze_used: { streak: number; freezes_left: number };
   streak_broken: { previous_streak: number };
 };

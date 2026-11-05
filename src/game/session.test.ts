@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { hunts } from '../data/hunts';
+import { hunts, practiceHunts } from '../data/hunts';
 import { applyFinish } from '../engine';
 import { createMemoryBackend } from '../storage';
 import { createGameReducer } from './reducer';
@@ -99,5 +99,43 @@ describe('createSession', () => {
     const session = createSession('', NOV_9, backend);
     saveGame(session, { ...session.initialGame, phase: 'finished', puzzle: hunts[0].day });
     expect(createSession('', NOV_9, backend).initialGame.phase).toBe('idle');
+  });
+
+  it('opens practice hunts in memory only, apart from the daily hunts', () => {
+    const backend = createMemoryBackend();
+    const session = createSession('?practice=2', NOV_9, backend);
+    expect(session.mode).toBe('practice');
+    expect(session.hunt).toBe(practiceHunts[1]);
+    expect(session.streak).toBeNull();
+    saveGame(session, session.initialGame);
+    expect(backend.length).toBe(0);
+    expect(createSession('?practice=9', NOV_9, backend).mode).toBe('live');
+  });
+
+  it('replays a past day by its day number, in memory only', () => {
+    const backend = createMemoryBackend();
+    const session = createSession('?replay=9', NOV_9, backend);
+    expect(session.mode).toBe('replay');
+    expect(session.dayNumber).toBe(9);
+    expect(session.hunt).toBe(hunts[1]);
+    saveGame(session, session.initialGame);
+    expect(backend.length).toBe(0);
+  });
+
+  it('adds a hunt finished before the trail existed when the game opens', () => {
+    const backend = createMemoryBackend();
+    const first = createSession('', NOV_9, backend);
+    expect(first.trail).toEqual([]);
+    const reduce = createGameReducer(first.hunt);
+    let state = reduce(first.initialGame, { type: 'start', now: 0 });
+    for (const [index, stage] of first.hunt.stages.entries()) {
+      state = reduce(state, { type: 'submit', answer: stage.answer, now: 1000 });
+      if (index < 2) state = reduce(state, { type: 'advance', now: 1000 });
+    }
+    saveGame(first, state);
+    const reopened = createSession('', NOV_9, backend);
+    expect(reopened.trail.map((entry) => entry.dayNumber)).toEqual([4]);
+    expect(createSession('', NOV_9, backend).trail).toHaveLength(1);
+    expect(createSession('?date=2026-11-09', NOV_9, backend).trail).toEqual([]);
   });
 });

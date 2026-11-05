@@ -19,6 +19,15 @@ export const elapsedSecs = (state: GameState, now: number): number => {
 export const foundLetters = (hunt: Hunt, state: GameState): (string | null)[] =>
   hunt.stages.map((stage, index) => (state.stages[index].solved ? stage.answer[0] : null));
 
+export function formatDate(dateKey: string, withWeekday = true): string {
+  const [year, month, day] = dateKey.split('-').map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString(undefined, {
+    ...(withWeekday ? { weekday: 'long' as const } : {}),
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
 export const formatTime = (secs: number): string => {
   const minutes = Math.floor(secs / 60);
   return `${minutes}:${String(secs % 60).padStart(2, '0')}`;

@@ -1,30 +1,26 @@
 import type { StreakChange, StreakState } from '../engine';
+import { formatDate } from '../game/selectors';
+import type { TrailRow } from '../game/trail';
+import { Trail } from './Trail';
 
 type Props = {
-  huntNumber: number;
+  /** What the line under the wordmark calls this hunt. */
+  label: string;
   dateKey: string;
   streak: StreakState | null;
   streakChange: StreakChange | null;
+  trail: TrailRow[];
   onStart: () => void;
 };
 
-function formatDate(dateKey: string): string {
-  const [year, month, day] = dateKey.split('-').map(Number);
-  return new Date(year, month - 1, day).toLocaleDateString(undefined, {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-  });
-}
-
 const dayWord = (count: number) => (count === 1 ? 'day' : 'days');
 
-export function Intro({ huntNumber, dateKey, streak, streakChange, onStart }: Props) {
+export function Intro({ label, dateKey, streak, streakChange, trail, onStart }: Props) {
   return (
     <main className="screen screen-center">
       <h1 className="wordmark">Daily Trail</h1>
       <p className="muted">
-        {formatDate(dateKey)}. Hunt #{huntNumber}.
+        {formatDate(dateKey)}. {label}.
       </p>
       {streakChange?.type === 'freeze_used' && (
         <p className="muted">Your freeze covered the day you missed, so your streak is safe.</p>
@@ -49,6 +45,7 @@ export function Intro({ huntNumber, dateKey, streak, streakChange, onStart }: Pr
       <button className="button" type="button" onClick={onStart}>
         Start
       </button>
+      <Trail rows={trail} />
     </main>
   );
 }

@@ -1,9 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import reference from '../../reference/hunts.json';
 import { atbash, caesar, checkAnswer, decodeText, pairSwap } from '../engine';
-import { cipherHowTo, hunts } from './hunts';
+import { cipherHowTo, hunts, practiceHunts } from './hunts';
 
-describe.each(hunts.map((hunt) => [hunt.day, hunt] as const))('hunt for day %i', (_day, hunt) => {
+const allHunts = [
+  ...hunts.map((hunt) => ['daily', hunt.day, hunt, reference.hunts] as const),
+  ...practiceHunts.map((hunt) => ['practice', hunt.day, hunt, reference.practice] as const),
+];
+
+describe.each(allHunts)('%s hunt %i', (_kind, _number, hunt, source) => {
   const [, cipher] = hunt.stages;
 
   it('has cipher text that decodes to its answer', () => {
@@ -48,14 +53,23 @@ describe.each(hunts.map((hunt) => [hunt.day, hunt] as const))('hunt for day %i',
   });
 
   it('matches the reference data', () => {
-    const source = reference.hunts.find((item) => item.day === hunt.day);
+    const match = source.find((item) => item.day === hunt.day);
     const withoutHints = hunt.stages.map(({ hints: _hints, ...stage }) => stage);
-    expect(source?.word).toBe(hunt.word);
-    expect(withoutHints).toEqual(source?.stages);
+    expect(match?.word).toBe(hunt.word);
+    expect(withoutHints).toEqual(match?.stages);
   });
 });
 
 describe('hunt list', () => {
+  it('has three practice hunts numbered 1 to 3, with answers not used by any daily hunt', () => {
+    expect(practiceHunts.map((hunt) => hunt.day)).toEqual([1, 2, 3]);
+    const daily = new Set(hunts.flatMap((hunt) => [hunt.word, ...hunt.stages.map((stage) => stage.answer)]));
+    for (const hunt of practiceHunts) {
+      expect(daily.has(hunt.word)).toBe(false);
+      for (const stage of hunt.stages) expect(daily.has(stage.answer)).toBe(false);
+    }
+  });
+
   it('has seven hunts numbered 1 to 7', () => {
     expect(hunts.map((hunt) => hunt.day)).toEqual([1, 2, 3, 4, 5, 6, 7]);
   });

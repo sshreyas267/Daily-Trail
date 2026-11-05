@@ -10,17 +10,25 @@ import { applyFinish, toDateKey } from './engine';
 import { trackTransition } from './game/events';
 import { createGameReducer, type GameAction } from './game/reducer';
 import { elapsedSecs, foundLetters } from './game/selectors';
-import { saveGame, saveStreak, type Session } from './game/session';
+import { isRealPlay, saveGame, saveStreak, saveTrail, type Session } from './game/session';
+import { addToTrail, trailEntryFor, trailRows } from './game/trail';
+
+const BANNER: Record<Exclude<Session['mode'], 'live'>, (session: Session) => string> = {
+  day: (session) => `Test view of puzzle ${session.hunt.day}. This play does not count.`,
+  date: (session) => `Test date ${session.dateKey}. This is kept apart from your real progress.`,
+  practice: (session) => `Practice hunt ${session.dayNumber}. This play does not count.`,
+  replay: (session) => `Replay of Hunt #${session.dayNumber}. This play does not count.`,
+};
 
 function DevBanner({ session }: { session: Session }) {
   if (session.mode === 'live') return null;
-  return (
-    <aside className="dev-banner">
-      {session.mode === 'day'
-        ? `Test view of puzzle ${session.hunt.day}. This play does not count.`
-        : `Test date ${session.dateKey}. This is kept apart from your real progress.`}
-    </aside>
-  );
+  return <aside className="dev-banner">{BANNER[session.mode](session)}</aside>;
+}
+
+function introLabel(session: Session): string {
+  if (session.mode === 'practice') return `Practice hunt ${session.dayNumber}`;
+  if (session.mode === 'replay') return `Replay of Hunt #${session.dayNumber}`;
+  return `Hunt #${session.dayNumber}`;
 }
 
 export function App({ session }: { session: Session }) {
@@ -28,6 +36,7 @@ export function App({ session }: { session: Session }) {
   const reducer = useMemo(() => createGameReducer(hunt), [hunt]);
   const [state, setState] = useState(session.initialGame);
   const [streak, setStreak] = useState(session.streak);
+  const [trail, setTrail] = useState(session.trail);
 
   useEffect(() => {
     saveGame(session, state);
@@ -40,6 +49,11 @@ export function App({ session }: { session: Session }) {
       nextStreak = applyFinish(streak, session.dateKey);
       setStreak(nextStreak);
       saveStreak(session, nextStreak);
+    }
+    if (next.finishedAt !== null && state.finishedAt === null && isRealPlay(session.mode)) {
+      const nextTrail = addToTrail(trail, trailEntryFor(next, session.dateKey));
+      setTrail(nextTrail);
+      saveTrail(session, nextTrail);
     }
     setState(next);
     trackTransition(hunt, state, next, action, nextStreak?.count ?? 0, track);
@@ -82,19 +96,32 @@ export function App({ session }: { session: Session }) {
   const stage = hunt.stages[state.stageIndex];
   const progress = state.stages[state.stageIndex];
 
+  const rows = trailRows(trail, { puzzle: hunt.day, finished: state.phase === 'finished' });
+
   let screen;
   if (state.phase === 'idle') {
     screen = (
       <Intro
-        huntNumber={state.dayNumber}
+        label={introLabel(session)}
         dateKey={session.dateKey}
         streak={streak}
         streakChange={session.streakChange}
+        trail={rows}
         onStart={() => dispatch({ type: 'start', now: Date.now() })}
       />
     );
   } else if (state.phase === 'finished') {
-    screen = <Result hunt={hunt} state={state} streak={streak} practising={session.mode !== 'live'} />;
+    screen = (
+      <Result
+        hunt={hunt}
+        state={state}
+        streak={streak}
+        daily={session.mode !== 'practice' && session.mode !== 'replay'}
+        practising={!isRealPlay(session.mode)}
+        currentPractice={session.mode === 'practice' ? session.dayNumber : null}
+        trail={rows}
+      />
+    );
   } else {
     screen = (
       <>

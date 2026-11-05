@@ -32,19 +32,26 @@ To add a package, use `npx npm@11 install <package>`. npm 10 crashes while resol
 
 ## Test overrides
 
-After finishing a hunt, the result screen lists all seven hunts under "Play more hunts". Each opens as a practice play using `?day=N`, so testers can try every hunt in one sitting. The overrides below work on the live site too.
+Players and testers can also play beyond the one daily hunt:
+
+- **Practice hunts:** after finishing, "Play more hunts" offers three practice hunts. They are separate from the seven daily hunts, so they never spoil a future day.
+- **Past hunts:** the intro and result screens list the daily hunts a player has finished, with their squares, score and time. Each one can show its answers or be played again. If a past hunt is today's puzzle again, its answers stay hidden until today's hunt is finished.
+
+Practice plays and replays never change the streak, score or daily lock. To see a longer list of past hunts, play a few test dates with `?date=`. The overrides below work on the live site too.
 
 | Add to the URL | What it does |
 |---|---|
 | `?day=N` | Shows puzzle N. It never changes the real streak, daily lock or score. |
 | `?date=YYYY-MM-DD` | Plays as if it were that date, in separate saved state, so streaks can be tested. |
+| `?practice=N` | Plays practice hunt N, from 1 to 3. |
+| `?replay=N` | Plays the daily hunt from day N again. |
 | `?reset=1` | Clears local state, then removes itself from the URL. |
 
 ## How the code is organised
 
 | Folder | What it holds |
 |---|---|
-| `src/data` | The seven hunts and the cipher help text. All puzzle content lives here. |
+| `src/data` | The seven daily hunts, three practice hunts and the cipher help text. All puzzle content lives here. |
 | `src/engine` | Pure logic: answers, scoring, ciphers, dates, streaks, share text and the leaderboard. |
 | `src/game` | The game reducer, saved sessions and the events each action fires. |
 | `src/components` | The screens. They contain no puzzle logic. |

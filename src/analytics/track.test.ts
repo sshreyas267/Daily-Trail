@@ -16,7 +16,8 @@ const PAYLOADS: { [N in EventName]: EventProps[N] } = {
   hunt_completed: { score: 245, secs: 90, hints: 3, wrong: 1, streak: 4 },
   hunt_abandoned: { last_stage: 2, secs: 40 },
   share_copied: { score: 245, method: 'copy' },
-  practice_opened: { puzzle: 3 },
+  practice_opened: { kind: 'replay', target: 3 },
+  trail_answers_viewed: { day: 2 },
   streak_freeze_used: { streak: 3, freezes_left: 0 },
   streak_broken: { previous_streak: 5 },
 };
@@ -32,8 +33,8 @@ describe('track', () => {
     expect(event).not.toHaveProperty('dev');
   });
 
-  it('covers all twelve events in the schema', () => {
-    expect(Object.keys(PAYLOADS)).toHaveLength(12);
+  it('covers all thirteen events in the schema', () => {
+    expect(Object.keys(PAYLOADS)).toHaveLength(13);
   });
 
   it('marks test events as dev', () => {

@@ -108,20 +108,77 @@ a.button {
 
 .more-hunts-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
   gap: var(--space-2);
+  justify-items: center;
   margin: var(--space-3) 0;
   padding: 0;
   list-style: none;
 }
 
-.more-hunts-list .button {
-  padding-inline: var(--space-2);
+.more-hunts-list li {
+  width: 100%;
+  max-width: 320px;
 }
 
-.more-hunts-list .button[aria-current='page'] {
-  background: var(--button-bg);
-  color: var(--button-text);
+/* Past hunts */
+.trail-list {
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.trail-item {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--border);
+}
+
+.trail-item .button {
+  max-width: none;
+}
+
+.trail-title,
+.trail-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.trail-stats {
+  justify-content: flex-start;
+  font-size: 0.9375rem;
+}
+
+.trail-answers summary {
+  padding-block: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.trail-answers dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-3);
+  margin: 0 0 var(--space-2);
+}
+
+.trail-answers dl > div {
+  display: contents;
+}
+
+.trail-answers dt {
+  color: var(--text-muted);
+}
+
+.trail-answers dd {
+  margin: 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 /* Game header */
@@ -415,6 +472,7 @@ a.button {
 
 .share-card,
 .more-hunts,
+.trail,
 .leaderboard {
   width: 100%;
   padding: var(--space-4);

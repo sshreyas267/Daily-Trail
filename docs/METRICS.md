@@ -56,9 +56,10 @@ We chose this over visits because a visit only shows that someone opened the pag
 
 | Metric | How it is calculated | Starting target |
 |---|---|---|
-| Practice rate | Players who open a practice hunt from the result screen, out of players who finish that day | No target yet. We learn what is normal first |
+| Practice rate | Players who open a practice hunt, out of players who finish that day | No target yet. We learn what is normal first |
+| Replay rate | Players who view the answers of a past hunt or play one again, out of players who open the game that day | No target yet. We learn what is normal first |
 
-Practice plays never count towards the streak, score or any metric above.
+Practice hunts are separate from the daily hunts, so they never spoil a future day. Practice plays and replays never count towards the streak, score or any metric above. Only the first practice hunt or replay opened from the daily game is recorded, so these rates show how many players want more, not how much they play.
 
 ## What we do when a number moves
 
@@ -77,7 +78,8 @@ Practice plays never count towards the streak, score or any metric above.
 | Freezes make no visible difference | The freeze is not worth the complexity | Simplify the streak rules |
 | Share rate is under 5% | The result is not worth showing off | Test a new share card and a head-to-head challenge link |
 | Share rate is healthy but new players stay flat | Shares do not bring people in | Track arrivals from shared links, then change the message or the link |
-| Practice rate is above 30% | Many players want more than one hunt a day | Build a hunt archive or a bonus hunt, and check that it does not lower next-day returns |
+| Practice rate is above 30% | Many players want more than one hunt a day | Add more practice hunts or a weekly bonus hunt, and check that it does not lower next-day returns |
+| Replay rate is high | Players value their record of past hunts | Make the past hunts list more prominent, for example with a monthly map of finished hunts |
 | Finish rate rises while D7 falls | The hunts may have become too easy to feel rewarding | Roll back the easier content and check the difficulty mix |
 
 ## Reading the numbers safely

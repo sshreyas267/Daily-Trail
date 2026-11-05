@@ -383,3 +383,185 @@ export const hunts: Hunt[] = [
     ],
   },
 ];
+
+/** Practice hunts. Always open, separate from the daily hunts, and never counted. `day` is the practice number. */
+export const practiceHunts: Hunt[] = [
+  {
+    "day": 1,
+    "word": "BOW",
+    "stages": [
+      {
+        "type": "riddle",
+        "prompt": "I have a spine but no bones, and leaves but no branches. What am I?",
+        "answer": "BOOK",
+        "accept": [
+          "book"
+        ],
+        "hints": [
+          "You can find me on a shelf.",
+          "You read me from cover to cover, and I start with B.",
+          "The answer is BOOK."
+        ]
+      },
+      {
+        "type": "cipher",
+        "kind": "caesar",
+        "shift": 2,
+        "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+        "crib": {
+          "text": "VJG",
+          "plain": "THE"
+        },
+        "cipher": "QXGTDQCTF",
+        "answer": "OVERBOARD",
+        "accept": [
+          "overboard"
+        ],
+        "hints": [
+          "VJG is really THE. Count the places from T forward to V. That is how many places each letter moved.",
+          "The first letter of the second word, Q, decodes to O.",
+          "The answer is OVERBOARD."
+        ]
+      },
+      {
+        "type": "pattern",
+        "prompt": "What comes next?",
+        "tiles": [
+          "N",
+          "E",
+          "S",
+          "?"
+        ],
+        "answer": "WEST",
+        "accept": [
+          "west",
+          "w"
+        ],
+        "hints": [
+          "Each letter starts a direction.",
+          "These are the points of a compass, going clockwise from the top.",
+          "The answer is WEST."
+        ]
+      }
+    ]
+  },
+  {
+    "day": 2,
+    "word": "TEA",
+    "stages": [
+      {
+        "type": "riddle",
+        "prompt": "What gets wetter the more it dries?",
+        "answer": "TOWEL",
+        "accept": [
+          "towel"
+        ],
+        "hints": [
+          "You reach for me after a bath or a swim.",
+          "I hang on a rail in the bathroom, and I start with T.",
+          "The answer is TOWEL."
+        ]
+      },
+      {
+        "type": "cipher",
+        "kind": "atbash",
+        "prompt": "A pirate sent a coded note. Decode the second word. That is your answer.",
+        "crib": {
+          "text": "GSV",
+          "plain": "THE"
+        },
+        "cipher": "VZHGDZIW",
+        "answer": "EASTWARD",
+        "accept": [
+          "eastward",
+          "eastwards"
+        ],
+        "hints": [
+          "GSV is really THE. T is 7th from the end of the alphabet and G is 7th from the start. Every letter flips this way.",
+          "The first letter of the second word, V, decodes to E.",
+          "The answer is EASTWARD."
+        ]
+      },
+      {
+        "type": "pattern",
+        "prompt": "What comes next?",
+        "tiles": [
+          "10",
+          "J",
+          "Q",
+          "K",
+          "?"
+        ],
+        "answer": "ACE",
+        "accept": [
+          "ace",
+          "a"
+        ],
+        "hints": [
+          "Think of a pack of playing cards.",
+          "Jack, Queen, King. Which card ranks higher still?",
+          "The answer is ACE."
+        ]
+      }
+    ]
+  },
+  {
+    "day": 3,
+    "word": "SKI",
+    "stages": [
+      {
+        "type": "riddle",
+        "prompt": "What goes up and down but never moves?",
+        "answer": "STAIRS",
+        "accept": [
+          "stairs",
+          "staircase",
+          "stairway",
+          "steps"
+        ],
+        "hints": [
+          "You find me in most houses with more than one floor.",
+          "You climb me to reach the next floor, and I start with S.",
+          "The answer is STAIRS."
+        ]
+      },
+      {
+        "type": "cipher",
+        "kind": "pairswap",
+        "prompt": "A pirate sent a coded note. Decode the word. That is your answer.",
+        "cipher": "RKKANE",
+        "answer": "KRAKEN",
+        "accept": [
+          "kraken"
+        ],
+        "hints": [
+          "Split the word into pairs of letters from the left, then swap the two letters in each pair.",
+          "The first pair is RK, so the word starts with K.",
+          "The answer is KRAKEN."
+        ]
+      },
+      {
+        "type": "pattern",
+        "prompt": "What comes next?",
+        "tiles": [
+          "A",
+          "C",
+          "E",
+          "G",
+          "?"
+        ],
+        "answer": "I",
+        "accept": [
+          "i"
+        ],
+        "hints": [
+          "Look at the order of the alphabet.",
+          "Each letter skips the one after it: A, skip B, C, skip D.",
+          "The answer is I."
+        ]
+      }
+    ]
+  }
+];
+
+export const PRACTICE_COUNT = practiceHunts.length;

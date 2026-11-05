@@ -6,13 +6,25 @@ import type { GameState } from '../game/reducer';
 import { Chest } from './Chest';
 import { Leaderboard } from './Leaderboard';
 import { MoreHunts } from './MoreHunts';
+import { Trail } from './Trail';
+import type { TrailRow } from '../game/trail';
 import { ShareCard } from './ShareCard';
 
-type Props = { hunt: Hunt; state: GameState; streak: StreakState | null; practising: boolean };
+type Props = {
+  hunt: Hunt;
+  state: GameState;
+  streak: StreakState | null;
+  /** Daily plays, real or under ?day=N, show the share card and leaderboard. Practice and replays do not. */
+  daily: boolean;
+  /** True for plays that never count. */
+  practising: boolean;
+  currentPractice: number | null;
+  trail: TrailRow[];
+};
 
 const STAGE_LABEL = { riddle: 'Riddle', cipher: 'Cipher', pattern: 'Pattern' } as const;
 
-export function Result({ hunt, state, streak, practising }: Props) {
+export function Result({ hunt, state, streak, daily, practising, currentPractice, trail }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const score = totalScore(state);
   const secs = elapsedSecs(state, Date.now());
@@ -81,9 +93,10 @@ export function Result({ hunt, state, streak, practising }: Props) {
         </tbody>
       </table>
 
-      <ShareCard text={shareText} score={score} />
-      <MoreHunts puzzle={hunt.day} practising={practising} />
-      <Leaderboard rows={buildLeaderboard(state.dayNumber, { name: 'You', score, secs })} />
+      {daily && <ShareCard text={shareText} score={score} />}
+      <MoreHunts currentPractice={currentPractice} showBack={practising} />
+      <Trail rows={trail} />
+      {daily && <Leaderboard rows={buildLeaderboard(state.dayNumber, { name: 'You', score, secs })} />}
     </main>
   );
 }
