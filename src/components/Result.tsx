@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react';
 import type { Hunt } from '../data/hunts';
-import type { StreakState } from '../engine';
+import { buildLeaderboard, buildShareText, type StreakState } from '../engine';
 import { formatTime, totalHints, totalScore, totalWrong, elapsedSecs } from '../game/selectors';
 import type { GameState } from '../game/reducer';
 import { Chest } from './Chest';
+import { Leaderboard } from './Leaderboard';
+import { ShareCard } from './ShareCard';
 
 type Props = { hunt: Hunt; state: GameState; streak: StreakState | null };
 
@@ -11,6 +13,15 @@ const STAGE_LABEL = { riddle: 'Riddle', cipher: 'Cipher', pattern: 'Pattern' } a
 
 export function Result({ hunt, state, streak }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const score = totalScore(state);
+  const secs = elapsedSecs(state, Date.now());
+  const shareText = buildShareText({
+    dayNumber: state.dayNumber,
+    stageHints: state.stages.map((stage) => stage.hints),
+    secs,
+    streak: streak?.count ?? null,
+    url: `${window.location.origin}/`,
+  });
 
   useEffect(() => {
     headingRef.current?.focus();
@@ -34,12 +45,12 @@ export function Result({ hunt, state, streak }: Props) {
         <div>
           <dt>Score</dt>
           <dd>
-            {totalScore(state)}/{hunt.stages.length * 100}
+            {score}/{hunt.stages.length * 100}
           </dd>
         </div>
         <div>
           <dt>Time</dt>
-          <dd>{formatTime(elapsedSecs(state, Date.now()))}</dd>
+          <dd>{formatTime(secs)}</dd>
         </div>
         <div>
           <dt>Hints</dt>
@@ -69,14 +80,8 @@ export function Result({ hunt, state, streak }: Props) {
         </tbody>
       </table>
 
-      <section className="placeholder" aria-label="Share card">
-        <h2 className="subheading">Share card</h2>
-        <p className="muted">Sharing is not ready yet.</p>
-      </section>
-      <section className="placeholder" aria-label="Leaderboard">
-        <h2 className="subheading">Leaderboard</h2>
-        <p className="muted">The leaderboard is not ready yet.</p>
-      </section>
+      <ShareCard text={shareText} score={score} />
+      <Leaderboard rows={buildLeaderboard(state.dayNumber, { name: 'You', score, secs })} />
     </main>
   );
 }
