@@ -80,6 +80,7 @@ export function Stage({ stage, stageNumber, stageCount, progress, onSubmit, onHi
     onSubmit(answer);
   };
 
+  const howTo = stage.type === 'cipher' ? cipherHowTo[stage.kind] : null;
   const nextHint = progress.hints;
   const hintsLeft = nextHint < HINT_COST.length;
   const hintLabel = nextHint === HINT_COST.length - 1 ? 'Show the answer' : `Take hint ${nextHint + 1}`;
@@ -94,10 +95,19 @@ export function Stage({ stage, stageNumber, stageCount, progress, onSubmit, onHi
       {stage.type === 'cipher' && <CipherNote stage={stage} />}
       {stage.type === 'pattern' && <PatternTiles tiles={stage.tiles} />}
 
-      {stage.type === 'cipher' && (
+      {howTo && (
         <details className="howto" open>
           <summary>How this works</summary>
-          <p>{cipherHowTo[stage.kind]}</p>
+          <p className="howto-summary">
+            <strong>{howTo.name}.</strong> {howTo.summary}
+          </p>
+          {howTo.chart && <pre className="howto-chart">{howTo.chart.join('\n')}</pre>}
+          <ol className="howto-steps">
+            {howTo.steps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+          <p className="howto-example">{howTo.example}</p>
         </details>
       )}
 

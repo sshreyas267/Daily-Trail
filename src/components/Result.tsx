@@ -1,14 +1,15 @@
 import { useEffect, useRef } from 'react';
 import type { Hunt } from '../data/hunts';
+import type { StreakState } from '../engine';
 import { formatTime, totalHints, totalScore, totalWrong, elapsedSecs } from '../game/selectors';
 import type { GameState } from '../game/reducer';
 import { Chest } from './Chest';
 
-type Props = { hunt: Hunt; state: GameState };
+type Props = { hunt: Hunt; state: GameState; streak: StreakState | null };
 
 const STAGE_LABEL = { riddle: 'Riddle', cipher: 'Cipher', pattern: 'Pattern' } as const;
 
-export function Result({ hunt, state }: Props) {
+export function Result({ hunt, state, streak }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -49,6 +50,12 @@ export function Result({ hunt, state }: Props) {
           <dd>{totalWrong(state)}</dd>
         </div>
       </dl>
+
+      {streak && (
+        <p className="streak-line">
+          Streak: {streak.count} {streak.count === 1 ? 'day' : 'days'}. Come back tomorrow for a new hunt.
+        </p>
+      )}
 
       <table className="stage-table">
         <caption className="visually-hidden">Points for each stage</caption>

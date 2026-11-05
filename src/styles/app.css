@@ -266,9 +266,47 @@
   cursor: pointer;
 }
 
-.howto p {
+.howto p,
+.howto-steps {
   margin: var(--space-2) 0 0;
   font-size: 0.9375rem;
+}
+
+.howto-steps {
+  padding-left: var(--space-5);
+}
+
+.howto-steps li + li {
+  margin-top: var(--space-1);
+}
+
+.howto-chart {
+  margin: var(--space-2) 0 0;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.howto-example {
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border);
+}
+
+/* Streak and test banner */
+.streak-line {
+  margin: 0;
+  font-weight: 600;
+}
+
+.dev-banner {
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  text-align: center;
 }
 
 /* Result */
