@@ -6,6 +6,8 @@ A daily treasure hunt for people who love puzzles. Everyone gets the same hunt e
 
 **Metrics plan:** [docs/Daily-Trail-Metrics-Plan.pdf](docs/Daily-Trail-Metrics-Plan.pdf) is the version for management. It lists what we track, what working and not working look like, what we change, and how results are reported. [docs/METRICS.md](docs/METRICS.md) has the same plan in plain text.
 
+**How the code works:** [docs/GUIDE.md](docs/GUIDE.md) explains how a play works and what each part of the code does, in plain terms.
+
 **How it was built:** [PROMPTS.md](PROMPTS.md) records what was asked and what changed in each phase.
 
 ## Why it is built this way

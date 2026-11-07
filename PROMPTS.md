@@ -56,3 +56,8 @@ Tooling note: npm 10.9.2 crashes while resolving peer dependencies for this depe
 **Asked:** Create a version of the metrics plan for someone on the management team, making sure it covers the brief: the metrics to track, inferences for management, and what works and what doesn't, so the product improves. Then add it to the repository as a PDF.
 
 **Changed:** Added docs/Daily-Trail-Metrics-Plan.pdf, a 7-page A4 document in the game's own look. It opens by mapping each part of the brief to the section that answers it. It then covers the main number, six questions with their metrics and starting targets, what working and not working look like with the change to make for each, the Monday update with a blank template, reading cautions and the gaps to close first. It says up front that no real player data exists yet, and it uses no invented numbers. The README links to it. The content matches docs/METRICS.md.
+
+## Project guide
+**Asked:** Write a guide to the project that explains how it works and what each code module does, in simple terms.
+
+**Changed:** Added docs/GUIDE.md. It covers what happens during a play, what is saved in the browser, a tour of every folder and file, one Submit tap traced through the code, the game rules, the ways to open the game, what the tests prove, how to make common changes, and a short glossary. The README links to it.
