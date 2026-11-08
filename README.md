@@ -4,7 +4,7 @@ A daily treasure hunt for people who love puzzles. Everyone gets the same hunt e
 
 **Play it:** https://dailytrail.vercel.app/
 
-**Metrics plan:** [docs/Daily-Trail-Metrics-Plan.pdf](docs/Daily-Trail-Metrics-Plan.pdf) is the version for management. It lists what we track, what working and not working look like, what we change, and how results are reported. [docs/METRICS.md](docs/METRICS.md) has the same plan in plain text.
+**Metrics plan:** [docs/Daily-Trail-Metrics-Plan.pdf](docs/Daily-Trail-Metrics-Plan.pdf) is the version for management. It lists what we track, what we would do when a number looks wrong, and how results are reported. [docs/METRICS.md](docs/METRICS.md) has the same plan in plain text.
 
 **How the code works:** [docs/GUIDE.md](docs/GUIDE.md) explains how a play works and what each part of the code does, in plain terms.
 
@@ -68,7 +68,7 @@ Every puzzle has a unit test proving that its cipher text decodes to its answer.
 
 - **Leaderboard:** only the player's row is real. The other 12 players are generated from the day number, and the screen says so.
 - **Player data:** there is no backend. Progress and events stay in each player's browser, so no real metrics exist across players yet. The Event log link on the screen shows a player's own events and can export them as JSON.
-- **Metric targets:** retention targets come from published game industry data. Every other target will be set from the game's own first two weeks of real data. None of them are results.
+- **Metric goals:** goals for players coming back use published game industry numbers. Every other goal will be set from the game's own first two weeks of real data. None of them are results.
 - **Content:** the seven hunts repeat every seven days, so a longer run needs more puzzles.
 - **Metrics dashboard:** this was optional and has not been built.
 

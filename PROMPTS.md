@@ -66,3 +66,8 @@ Tooling note: npm 10.9.2 crashes while resolving peer dependencies for this depe
 **Asked:** The percentages in the metrics plan had no real basis. Check for published retention benchmarks, or change how the assumptions are made.
 
 **Changed:** Replaced the targets in docs/METRICS.md and docs/Daily-Trail-Metrics-Plan.pdf. The old retention targets (D1 45%, D7 25%, D30 12%) were close to what the top 50 puzzle games achieve, so they are now about 27%, 7.5% and 2.8%, the top quarter of mobile games in GameAnalytics data, with the typical puzzle game as the lower limit. No reliable public figures were found for the other metrics, so their numbers were removed. They are now set from a baseline of the first 14 days and at least 200 players, or by comparing stages and puzzles with each other, and a change only counts if it is bigger than the margin of error. Both documents list their sources and limits, including that the benchmarks come from installed mobile apps.
+
+## Simpler metrics plan
+**Asked:** Keep the language simple. The "what works and what we change" sections were confusing, so explain them first, then put the simpler version in the PDF.
+
+**Changed:** Rewrote docs/METRICS.md and docs/Daily-Trail-Metrics-Plan.pdf in plain words. The green and yellow boxes are replaced by one table under each question: what we see, what it probably means, what we do. Terms such as D1, baseline, clean solve and drop-off became plain phrases, and the sources moved to the end. The metrics and the researched numbers did not change. Both documents now come from the same text, so they match.
