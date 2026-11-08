@@ -71,3 +71,8 @@ Tooling note: npm 10.9.2 crashes while resolving peer dependencies for this depe
 **Asked:** Keep the language simple. The "what works and what we change" sections were confusing, so explain them first, then put the simpler version in the PDF.
 
 **Changed:** Rewrote docs/METRICS.md and docs/Daily-Trail-Metrics-Plan.pdf in plain words. The green and yellow boxes are replaced by one table under each question: what we see, what it probably means, what we do. Terms such as D1, baseline, clean solve and drop-off became plain phrases, and the sources moved to the end. The metrics and the researched numbers did not change. Both documents now come from the same text, so they match.
+
+## Uneven difficulty mix
+**Asked:** Add the idea of varying easy, medium and hard puzzles wherever relevant. It should not simply alternate, and the frequency should change, for example 3 easy days then 1 hard day in one week, and 2 hard, 1 easy, 1 hard and 3 medium days the next.
+
+**Changed:** Added a seventh question to docs/METRICS.md and docs/Daily-Trail-Metrics-Plan.pdf, "Is the mix of easy and hard puzzles right?", with the plan, the user's examples, what to measure and what to do. Also added a matching gap (label puzzles by difficulty and write more of them), a note that the uneven mix would solve the same-weekday problem, and a next step in the README. This is a plan only. The game itself still repeats the same seven unlabelled hunts in order, and the documents say so.

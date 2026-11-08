@@ -76,6 +76,7 @@ Every puzzle has a unit test proving that its cipher text decodes to its answer.
 
 1. Send events to an analytics service, because the metrics plan depends on it.
 2. Add more hunts, so returning players do not see repeats after the first week.
-3. Add crews, so small groups can play and compare together.
-4. Let community members submit puzzles.
-5. Add a monthly story map that links the daily hunts together.
+3. Label puzzles easy, medium or hard, and schedule them in an uneven mix that changes from week to week, so players cannot guess how hard tomorrow will be.
+4. Add crews, so small groups can play and compare together.
+5. Let community members submit puzzles.
+6. Add a monthly story map that links the daily hunts together.

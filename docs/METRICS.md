@@ -33,7 +33,7 @@ We aim for the top quarter. That is our own choice: this game is for people who 
 - **Two columns use day 28.** That is the closest published number to day 30. The last column uses day 30.
 - **The goals can change.** We will update them after our first two weeks if our players behave differently.
 
-## Six questions we answer each week
+## Seven questions we answer each week
 
 Each question lists what we measure and the goal. The table under it shows what we do if a number looks wrong. We decide this in advance, so the numbers lead to action.
 
@@ -83,6 +83,27 @@ Similar puzzles means the same kind: riddles with riddles, ciphers with ciphers,
 | One puzzle shows the answer far more often than similar puzzles | It is too hard or unfair | Rewrite the puzzle or its hints. Remove it if it is still too hard. |
 | One puzzle gets many more wrong answers than similar puzzles, but no more hints | We may be rejecting right answers, or players may not see the hints | Check which answers we accept, and make the hint button easier to see. |
 | More players finish, but fewer come back after 7 days | The puzzles may have become too easy to feel rewarding | Bring back harder puzzles and check the mix. |
+
+### Is the mix of easy and hard puzzles right?
+
+**Planned: an uneven mix of easy, medium and hard puzzles.** Players should not be able to guess how hard tomorrow's puzzle will be. So the mix will change from week to week, and it will not simply alternate. For example:
+
+- First week of the month: 3 easy days, then 1 hard day.
+- Next week: 2 hard days, 1 easy day, 1 hard day, then 3 medium days.
+
+The game does not do this yet. Today the same seven hunts repeat in the same order, and they are not labelled by difficulty.
+
+| What we measure | How it is worked out | Goal |
+|---|---|---|
+| Solved with no hints, by difficulty | Stages solved without taking a hint, shown for easy, medium and hard days | Compare the 3 levels |
+| Players who finish, by difficulty | Players who finish, out of players who pressed Start, shown for easy, medium and hard days | Compare the 3 levels |
+| Back the next day, by difficulty | Players who finish a hunt and open the game the next day, shown after easy, medium and hard days | Compare the 3 levels |
+
+| What we see | What it probably means | What we do |
+|---|---|---|
+| A puzzle labelled hard is solved with no hints as often as easy puzzles | The label is wrong | Change the label, or make the puzzle harder. |
+| Far fewer players come back the day after a hard puzzle | Hard days are putting people off | Make hard days a little easier, or follow them with an easier day. |
+| Fewer players come back during long runs of easy days | Too many easy days in a row feel boring | Shorten the easy runs and bring in a hard day sooner. |
 
 ### Does the streak keep people playing?
 
@@ -139,7 +160,7 @@ Each Monday, management gets one short update with four parts:
 - **One player means one browser on one device.** Someone using a second device, a private window or cleared browser data counts as a new player. This adds extra new players and makes the come-back numbers look a little lower.
 - **Streak numbers miss people who leave for good.** We only record a lost streak when a player opens the game. Someone who never returns records nothing, so read streak numbers next to the come-back numbers.
 - **Freeze comparisons do not prove the freeze helped.** Players who use a freeze may already be keener. We need a proper test, where some players get the feature and some do not, before giving it credit.
-- **Each puzzle always falls on the same weekday.** There are seven daily hunts on a seven-day cycle, so a hard puzzle and a quiet weekday look the same.
+- **Each puzzle always falls on the same weekday.** There are seven daily hunts on a seven-day cycle, so a hard puzzle and a quiet weekday look the same. The planned uneven mix, with more puzzles, would separate the two.
 - **Puzzles repeat after seven days.** Returning players may remember the answers, so we judge how hard a puzzle is from first plays only.
 - **Use the middle time, not the average.** The timer keeps running if a player leaves and comes back, so a few very long times would distort an average.
 - **Copying is not the same as posting.** Copy shows the result was copied, not that it was posted anywhere.
@@ -150,6 +171,7 @@ Each Monday, management gets one short update with four parts:
 | What is missing | Why it matters | Fix |
 |---|---|---|
 | Collect all players' data in one place | Today each player's data stays on their own device, so we cannot see totals. | Send the data to an analytics service. This comes first, because nothing else in this document works without it. |
+| Label puzzles by difficulty | We cannot compare easy and hard days until each puzzle is labelled, and seven puzzles are too few for an uneven pattern. | Label each puzzle easy, medium or hard, write more puzzles, and schedule them in an uneven mix. |
 | Tag shared links | We cannot tell whether shares bring in new players. | Add a tag to the link in the share text, and record it on a player's first visit. |
 | Keep wrong answers | We cannot tell typos and fair alternative answers from real mistakes. | Record wrong answers in a way that protects privacy, and review the most common ones. |
 | Learn why players stop | Leaving the page also happens when someone briefly switches apps, so it only shows where a player was. | Count "started but did not finish that day" instead, and add a one-question survey if needed. |
