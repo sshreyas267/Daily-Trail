@@ -68,7 +68,7 @@ Every puzzle has a unit test proving that its cipher text decodes to its answer.
 
 - **Leaderboard:** only the player's row is real. The other 12 players are generated from the day number, and the screen says so.
 - **Player data:** there is no backend. Progress and events stay in each player's browser, so no real metrics exist across players yet. The Event log link on the screen shows a player's own events and can export them as JSON.
-- **Metric targets:** the targets in the metrics plan are starting assumptions, not results.
+- **Metric targets:** retention targets come from published game industry data. Every other target will be set from the game's own first two weeks of real data. None of them are results.
 - **Content:** the seven hunts repeat every seven days, so a longer run needs more puzzles.
 - **Metrics dashboard:** this was optional and has not been built.
 

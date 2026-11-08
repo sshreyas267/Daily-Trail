@@ -61,3 +61,8 @@ Tooling note: npm 10.9.2 crashes while resolving peer dependencies for this depe
 **Asked:** Write a guide to the project that explains how it works and what each code module does, in simple terms.
 
 **Changed:** Added docs/GUIDE.md. It covers what happens during a play, what is saved in the browser, a tour of every folder and file, one Submit tap traced through the code, the game rules, the ways to open the game, what the tests prove, how to make common changes, and a short glossary. The README links to it.
+
+## Evidence-based metric targets
+**Asked:** The percentages in the metrics plan had no real basis. Check for published retention benchmarks, or change how the assumptions are made.
+
+**Changed:** Replaced the targets in docs/METRICS.md and docs/Daily-Trail-Metrics-Plan.pdf. The old retention targets (D1 45%, D7 25%, D30 12%) were close to what the top 50 puzzle games achieve, so they are now about 27%, 7.5% and 2.8%, the top quarter of mobile games in GameAnalytics data, with the typical puzzle game as the lower limit. No reliable public figures were found for the other metrics, so their numbers were removed. They are now set from a baseline of the first 14 days and at least 200 players, or by comparing stages and puzzles with each other, and a change only counts if it is bigger than the margin of error. Both documents list their sources and limits, including that the benchmarks come from installed mobile apps.
