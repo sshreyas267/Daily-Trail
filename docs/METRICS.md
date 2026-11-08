@@ -86,12 +86,12 @@ Similar puzzles means the same kind: riddles with riddles, ciphers with ciphers,
 
 ### Is the mix of easy and hard puzzles right?
 
-**Planned: an uneven mix of easy, medium and hard puzzles.** Players should not be able to guess how hard tomorrow's puzzle will be. So the mix will change from week to week, and it will not simply alternate. For example:
+**Future scope: an uneven mix of easy, medium and hard puzzles.** Players should not be able to guess how hard tomorrow's puzzle will be. So the mix will change from week to week, and it will not simply alternate. For example:
 
 - First week of the month: 3 easy days, then 1 hard day.
 - Next week: 2 hard days, 1 easy day, 1 hard day, then 3 medium days.
 
-The game does not do this yet. Today the same seven hunts repeat in the same order, and they are not labelled by difficulty.
+The game does not do this yet, so this question applies once it is built. Today the same seven hunts repeat in the same order, and they are not labelled by difficulty.
 
 | What we measure | How it is worked out | Goal |
 |---|---|---|
@@ -160,7 +160,7 @@ Each Monday, management gets one short update with four parts:
 - **One player means one browser on one device.** Someone using a second device, a private window or cleared browser data counts as a new player. This adds extra new players and makes the come-back numbers look a little lower.
 - **Streak numbers miss people who leave for good.** We only record a lost streak when a player opens the game. Someone who never returns records nothing, so read streak numbers next to the come-back numbers.
 - **Freeze comparisons do not prove the freeze helped.** Players who use a freeze may already be keener. We need a proper test, where some players get the feature and some do not, before giving it credit.
-- **Each puzzle always falls on the same weekday.** There are seven daily hunts on a seven-day cycle, so a hard puzzle and a quiet weekday look the same. The planned uneven mix, with more puzzles, would separate the two.
+- **Each puzzle always falls on the same weekday.** There are seven daily hunts on a seven-day cycle, so a hard puzzle and a quiet weekday look the same. The uneven mix described as future scope, with more puzzles, would separate the two.
 - **Puzzles repeat after seven days.** Returning players may remember the answers, so we judge how hard a puzzle is from first plays only.
 - **Use the middle time, not the average.** The timer keeps running if a player leaves and comes back, so a few very long times would distort an average.
 - **Copying is not the same as posting.** Copy shows the result was copied, not that it was posted anywhere.
@@ -171,7 +171,7 @@ Each Monday, management gets one short update with four parts:
 | What is missing | Why it matters | Fix |
 |---|---|---|
 | Collect all players' data in one place | Today each player's data stays on their own device, so we cannot see totals. | Send the data to an analytics service. This comes first, because nothing else in this document works without it. |
-| Label puzzles by difficulty | We cannot compare easy and hard days until each puzzle is labelled, and seven puzzles are too few for an uneven pattern. | Label each puzzle easy, medium or hard, write more puzzles, and schedule them in an uneven mix. |
+| Label puzzles by difficulty (future scope) | We cannot compare easy and hard days until each puzzle is labelled, and seven puzzles are too few for an uneven pattern. | Label each puzzle easy, medium or hard, write more puzzles, and schedule them in an uneven mix. |
 | Tag shared links | We cannot tell whether shares bring in new players. | Add a tag to the link in the share text, and record it on a player's first visit. |
 | Keep wrong answers | We cannot tell typos and fair alternative answers from real mistakes. | Record wrong answers in a way that protects privacy, and review the most common ones. |
 | Learn why players stop | Leaving the page also happens when someone briefly switches apps, so it only shows where a player was. | Count "started but did not finish that day" instead, and add a one-question survey if needed. |
